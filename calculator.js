@@ -1,5 +1,4 @@
-
-
+    //Initialization
     var listHist = document.getElementById("history");
     var currentResult = 0;
     var currentNumber = 0;
@@ -7,9 +6,12 @@
     var lastOp = 'undefined';
     var clear = true;
     leftOp = 0;
+    //
+
+    //Constructing the input
 
     function AddNumber(id){
-        stringNumber = document.getElementById('screen').value;
+        let stringNumber = document.getElementById('screen').value;
         if(clear){
             stringNumber = isFractional? "0." :"";
         }
@@ -24,22 +26,12 @@
         document.getElementById('screen').value = stringNumber;
     };
 
-    
-    // function AddFractionalDigit(digit){
-    //     currentNumber = currentNumber + (digit / mantissaLength);
-    //     mantissaLength *= 10;
-    // };
-
-    // function AddNumericalDigit(digit){
-    //     currentNumber = parseFloat(currentNumber * 10 + digit);
-    // };
-
     function RemoveNumber(){
         if(clear){
             document.getElementById("screen").value = 0;
         }
         else{
-            var stringNumber = document.getElementById('screen').value;
+            let stringNumber = document.getElementById('screen').value;
             if(stringNumber[stringNumber.length - 1] == "."){
                 isFractional = false;
             }
@@ -52,44 +44,29 @@
             currentNumber = parseInt(stringNumber);
             document.getElementById('screen').value = stringNumber;
         }
-    }
+    };
 
-    function getResult(cmd)
-    {
-        switch (cmd) {
-            case "+":
-                currentResult = leftOp + currentNumber;
-                break;
-            case "-":
-                currentResult = leftOp - currentNumber;
-                break;
-            case "*":
-                currentResult = leftOp * currentNumber;
-                break;
-            case "/":
-                currentResult = leftOp / currentNumber;
-                break;
-            case "^":
-                currentResult = leftOp ** currentNumber;
-                break;
-            default:
-                currentResult = currentNumber
-                break;
-        };
-        let li = document.createElement('li');
-        li.innerText = (lastOp) != "undefined"? leftOp + " " + cmd + " " + currentNumber + " = " + currentResult: "clear";
-        listHist.appendChild(li);
-       
-        lastOp = cmd;
+    function Dot(){
+        if(clear){
+            currentNumber = 0;
+        }
+        if(!isFractional){
+            isFractional = true;
+            document.getElementById('screen').value = currentNumber + ".";
+        }
+    };
+    
+    function Reset(){
+        currentResult = 0;
+        currentNumber = 0;
+        lastOp = 'undefined';
+        leftOp = 0;
         show(currentResult);
-        leftOp = currentResult
-        currentNumber = 0
+        isFractional = false;
     };
+    //
 
-    function show(value){
-        screen = document.getElementById('screen');
-        screen.value = value;
-    };
+    //Operations
 
     function Sum(){
         if(lastOp == "undefined"){
@@ -151,29 +128,50 @@
         isFractional = false;
     };
 
-    function Dot(){
-        if(clear){
-            currentNumber = 0;
-        }
-        if(!isFractional){
-            isFractional = true;
-            document.getElementById('screen').value = currentNumber + ".";
-        }
-    }
-
     function Result(){
         getResult(lastOp);
         lastOp = "undefined";
         currentNumber = currentResult;
         clear = true
-    }
+    };
+    //
+    
+    //Auxiliar Functions
 
-    function Reset(){
-        currentResult = 0;
-        currentNumber = 0;
-        lastOp = 'undefined';
-        leftOp = 0;
+    function getResult(cmd)
+    {
+        switch (cmd) {
+            case "+":
+                currentResult = leftOp + currentNumber;
+                break;
+            case "-":
+                currentResult = leftOp - currentNumber;
+                break;
+            case "*":
+                currentResult = leftOp * currentNumber;
+                break;
+            case "/":
+                currentResult = leftOp / currentNumber;
+                break;
+            case "^":
+                currentResult = leftOp ** currentNumber;
+                break;
+            default:
+                currentResult = currentNumber
+                break;
+        };
+        let li = document.createElement('li');
+        li.innerText = (lastOp) != "undefined"? leftOp + " " + cmd + " " + currentNumber + " = " + currentResult: "clear";
+        listHist.appendChild(li);
+       
+        lastOp = cmd;
         show(currentResult);
-        isFractional = false;
-    }
+        leftOp = currentResult
+        currentNumber = 0
+    };
 
+    function show(value){
+        screen = document.getElementById('screen');
+        screen.value = value;
+    };
+    //
