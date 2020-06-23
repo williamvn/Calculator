@@ -1,0 +1,12 @@
+div{
+    border: 1px solid black;
+}
+
+.numbers{
+    display: inline-block;
+}
+
+.body-calculator{
+    display: inline-block;
+
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./calculator.css">
+
+    <title>Calculator</title>
+    
+</head>
+<body lang="es-es">
+    <div class="container">
+        <div class="row">
+            
+            <div class="offset-5">
+                <input id="screen" type="text" disabled>
+                <div class="body-calculator">
+                    <div class="col-5" id="numbers">
+                        <button class="btn btn-primary m-1" onclick="AddNumber(1)">1</button>
+                        <button class="btn btn-primary m-1" onclick="AddNumber(2)">2</button>
+                        <button class="btn btn-primary m-1" onclick="AddNumber(3)">3</button>
+                        <button class="btn btn-primary m-1" onclick="AddNumber(4)">4</button>
+                        <button class="btn btn-primary m-1" onclick="AddNumber(5)">5</button>
+                        <button class="btn btn-primary m-1" onclick="AddNumber(6)">6</button>
+                        <button class="btn btn-primary m-1" onclick="AddNumber(7)">7</button>
+                        <button class="btn btn-primary m-1" onclick="AddNumber(8)">8</button>
+                        <button class="btn btn-primary m-1" onclick="AddNumber(9)">9</button>
+                        <button class="btn btn-primary m-1" onclick="AddNumber(0)">0</button>
+                        
+                    </div>
+                    <div class="col-3" id="operators">
+                        <button class="btn btn-primary m-1" onclick="Sum()">+</button>
+                        <button class="btn btn-primary m-1" onclick="Substraction()">-</button>
+                        <button class="btn btn-primary m-1" onclick="Mult()">*</button>
+                        <button class="btn btn-primary m-1" onclick="Pow()"> ^ </button>
+                        <button class="btn btn-primary m-1" onclick="Division()">/</button>
+                        <button class="btn btn-primary m-1" onclick="Result()">=</button>
+                        <button class="btn btn-primary m-1" onclick="RemoveNumber()">X</button>
+                    </div>
+                </div>
+            </br>
+            <label> History </label>
+            <p id="phistory"></p>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="calculator.js"></script>
+</body>
+</html>
