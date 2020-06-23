@@ -64,6 +64,19 @@
         show(currentResult);
         isFractional = false;
     };
+
+    function DeleteHistory(){
+        let hist = document.getElementById("history");
+        hist.remove();
+        hist = document.createElement("ul");
+        hist.setAttribute("class", "list-group");
+        li = document.createElement("li");
+        li.innerText = "History";
+        li.setAttribute("class", "list-group-item active bg-dark list-header");
+        hist.appendChild(li);
+        let container = document.getElementById("history-container");
+        container.appendChild(hist);
+    };
     //
 
     //Operations
