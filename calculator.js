@@ -3,7 +3,7 @@
     var listHist = document.getElementById("history");
     var currentResult = 0;
     var currentNumber = 0;
-    var mantissaLength = 0;
+    var isFractional = false;
     var lastOp = 'undefined';
     var clear = true;
     leftOp = 0;
@@ -11,9 +11,9 @@
     function AddNumber(id){
         stringNumber = document.getElementById('screen').value;
         if(clear){
-            stringNumber = "";
+            stringNumber = isFractional? "0." :"";
         }
-        if(currentNumber > 0){
+        if(currentNumber > 0 || isFractional){
             stringNumber += id
         }
         else{
@@ -86,7 +86,7 @@
             getResult(lastOp)
         }
         lastOp = "+";
-        mantissaLength = 0;
+        isFractional = false;
     };
     
     function Substraction(){
@@ -98,7 +98,7 @@
             getResult(lastOp)
         }
         lastOp = "-";
-        mantissaLength = 0;
+        isFractional = false;
     };
     
     function Mult(){
@@ -110,7 +110,7 @@
             getResult(lastOp)
         }
         lastOp = "*";
-        mantissaLength = 0;
+        isFractional = false;
     };
 
     function Division(){
@@ -122,7 +122,7 @@
             getResult(lastOp)
         }
         lastOp = "/";
-        mantissaLength = 0;
+        isFractional = false;
     };
 
     function Pow(){
@@ -134,16 +134,15 @@
             getResult(lastOp)
         };
         lastOp = "^";
-        mantissaLength = 0;
+        isFractional = false;
     };
 
     function Dot(){
         if(clear){
             currentNumber = 0;
-            mantissaLength = 0;  
         }
-        if(mantissaLength == 0){
-            mantissaLength = 10;
+        if(!isFractional){
+            isFractional = true;
             document.getElementById('screen').value = currentNumber + ".";
         }
     }
