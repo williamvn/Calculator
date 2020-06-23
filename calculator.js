@@ -35,8 +35,15 @@
     // };
 
     function RemoveNumber(){
-        currentNumber = parseInt(currentNumber/10);
-        document.getElementById('screen').value = currentNumber;
+        if(clear){
+            document.getElementById("screen").value = 0;
+        }
+        else{
+            var stringNumber = document.getElementById('screen').value;
+            stringNumber = stringNumber.substr(0, stringNumber.length - 1);
+            currentNumber = parseInt(stringNumber);
+            document.getElementById('screen').value = stringNumber;
+        }
     }
 
 
