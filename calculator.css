@@ -1,6 +1,6 @@
-div{
+/* div{
     border: 1px solid black;
-}
+} */
 
 .numbers{
     display: inline-block;
@@ -9,4 +9,8 @@ div{
 .body-calculator{
     display: inline-block;
 
+}
+
+.btn-xl{
+    width: 80px;
 }
