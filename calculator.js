@@ -43,12 +43,16 @@
             if(stringNumber[stringNumber.length - 1] == "."){
                 isFractional = false;
             }
-            stringNumber = stringNumber.substr(0, stringNumber.length - 1);
+            if(stringNumber.length == 1){
+                stringNumber = "0";
+            }
+            else{
+                stringNumber = stringNumber.substr(0, stringNumber.length - 1);
+            }
             currentNumber = parseInt(stringNumber);
             document.getElementById('screen').value = stringNumber;
         }
     }
-
 
     function getResult(cmd)
     {
@@ -170,6 +174,6 @@
         lastOp = 'undefined';
         leftOp = 0;
         show(currentResult);
-        mantissaLength = 0;
+        isFractional = false;
     }
 
