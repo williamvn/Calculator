@@ -70,6 +70,8 @@
         hist.remove();
         hist = document.createElement("ul");
         hist.setAttribute("class", "list-group");
+        hist.setAttribute("id", "history");
+        listHist = hist;
         li = document.createElement("li");
         li.innerText = "History";
         li.setAttribute("class", "list-group-item active bg-dark list-header");
