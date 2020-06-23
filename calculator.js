@@ -40,6 +40,9 @@
         }
         else{
             var stringNumber = document.getElementById('screen').value;
+            if(stringNumber[stringNumber.length - 1] == "."){
+                isFractional = false;
+            }
             stringNumber = stringNumber.substr(0, stringNumber.length - 1);
             currentNumber = parseInt(stringNumber);
             document.getElementById('screen').value = stringNumber;
