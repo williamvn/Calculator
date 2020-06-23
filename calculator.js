@@ -161,6 +161,7 @@
                 break;
         };
         let li = document.createElement('li');
+        li.setAttribute("class", "list-group-item");
         li.innerText = (lastOp) != "undefined"? leftOp + " " + cmd + " " + currentNumber + " = " + currentResult: "clear";
         listHist.appendChild(li);
        

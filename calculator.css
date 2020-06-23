@@ -13,4 +13,14 @@
 
 .btn-xl{
     width: 80px;
+    height: 80px;
 }
+
+.large{
+    width: 42%;
+}
+
+.orange{
+    background-color: #ff8c00;
+    border: none;
+} 

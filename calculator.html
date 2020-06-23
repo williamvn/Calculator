@@ -3,65 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./lib/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <link rel="stylesheet" href="./calculator.css">
 
     <title>Calculator</title>
     
 </head>
 <body class="bg-light" lang="es-es">
-    <div class="container">
-        <div class="row">
-            <div class="offset-4 col-6">
-                <div class="input-group my-4">
-                    <input id="screen" type="text" class="form-control">
-                    <div class="input-group-append">
-                    <button type="button" class="btn btn-outline-secondary">Remove</button>
-                    </button>
-                    </div>
+    <div class="row">
+        <div class="offset-sm-2 col-sm-8">
+            <div class="row">
+                <div class="col-sm-2 my-3">
+                    <ul id="history" class="list-group">
+                        <li class="list-group-item active bg-dark list-header">History</li>
+                    </ul>
                 </div>
 
-
-                <!-- <input id="screen" type="text" disabled> -->
-                <div class="body-calculator  bg-white p-2">
-                    <div class="col-5" id="numbers">
-                        <button class="btn btn-primary m-1 btn-xl" onclick="AddNumber(1)">1</button>
-                        <button class="btn btn-primary m-1" onclick="AddNumber(2)">2</button>
-                        <button class="btn btn-primary m-1" onclick="AddNumber(3)">3</button>
-                        <button class="btn btn-primary m-1" onclick="AddNumber(4)">4</button>
-                        <button class="btn btn-primary m-1" onclick="AddNumber(5)">5</button>
-                        <button class="btn btn-primary m-1" onclick="AddNumber(6)">6</button>
-                        <button class="btn btn-primary m-1" onclick="AddNumber(7)">7</button>
-                        <button class="btn btn-primary m-1" onclick="AddNumber(8)">8</button>
-                        <button class="btn btn-primary m-1" onclick="AddNumber(9)">9</button>
-                        <button class="btn btn-primary m-1" onclick="AddNumber(0)">0</button>
-                        
+                <div class="col-sm-8">
+                    <div class="input-group my-4">
+                        <input id="screen" type="text" class="form-control bg-white" disabled>
+                        <div class="input-group-append">
+                        <button type="button" class="btn btn-primary orange" onclick="RemoveNumber()">Delete</button>
+                        </button>
+                        </div>
                     </div>
-                    <div class="col-3" id="operators">
-                        <button class="btn btn-primary m-1" onclick="Sum()">+</button>
-                        <button class="btn btn-primary m-1" onclick="Substraction()">-</button>
-                        <button class="btn btn-primary m-1" onclick="Mult()">*</button>
-                        <button class="btn btn-primary m-1" onclick="Pow()"> ^ </button>
-                        <button class="btn btn-primary m-1" onclick="Division()">/</button>
-                        <button class="btn btn-primary m-1" onclick="Result()">=</button>
-                        <button class="btn btn-primary m-1" onclick="Dot()">.</button>
-                        <button class="btn btn-primary m-1" onclick="RemoveNumber()">X</button>
-                        <button class="btn btn-primary m-1" onclick="Reset()">C</button>
+                    <div class="row">
+                        <div class="body-calculator bg-white p-2">
+                            <div class="row">
+                                <div class="col-sm-8" id="keyboard">
+                                    <div class="container">
+                                    <button class="btn btn-dark m-1 btn-xl" onclick="AddNumber(1)">1</button>
+                                    <button class="btn btn-dark m-1 btn-xl" onclick="AddNumber(2)">2</button>
+                                    <button class="btn btn-dark m-1 btn-xl" onclick="AddNumber(3)">3</button>
+                                    <button class="btn btn-dark m-1 btn-xl" onclick="AddNumber(4)">4</button>
+                                    <button class="btn btn-dark m-1 btn-xl" onclick="AddNumber(5)">5</button>
+                                    <button class="btn btn-dark m-1 btn-xl" onclick="AddNumber(6)">6</button>
+                                    <button class="btn btn-dark m-1 btn-xl" onclick="AddNumber(7)">7</button>
+                                    <button class="btn btn-dark m-1 btn-xl" onclick="AddNumber(8)">8</button>
+                                    <button class="btn btn-dark m-1 btn-xl" onclick="AddNumber(9)">9</button>
+                                    <button class="btn btn-dark m-1 btn-xl" onclick="AddNumber(0)">0</button>
+                                    <button class="btn btn-dark m-1 btn-xl large" onclick="Dot()">.</button>
+                                    <button class="btn btn-dark m-1 btn-xl large orange" onclick="DeleteHistory()"><i class="fa fa-trash"></i>  Delete History</button>
+                                </div>
+                                </div>
+                                <div class="col-sm-4" id="operators">
+                                    <button class="btn btn-primary orange m-1 btn-xl" onclick="Reset()"><b>C</b></button>
+                                    <button class="btn btn-primary orange m-1 btn-xl" onclick="Substraction()"><i class="fa fa-minus"></i></button>
+                                    <button class="btn btn-primary orange m-1 btn-xl" onclick="Sum()"><i class="fa fa-plus"></i></button>
+                                    <button class="btn btn-primary orange m-1 btn-xl" onclick="Mult()"><i class="fa fa-times"></i></button>
+                                    <button class="btn btn-primary orange m-1 btn-xl" onclick="Pow()"><b> Pow </b></button>
+                                    <button class="btn btn-primary orange m-1 btn-xl" onclick="Division()"><b>/</b></button>
+                                    <button class="btn btn-primary orange m-1 btn-xl" onclick="Result()"><b>=</b></button>
+                                    <!-- <button class="btn btn-primary orange m-1 btn-xl" onclick="RemoveNumber()">X</button> -->
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </br>
-            <ul id="history">
-
-            </ul>
+            </div>
         </div>
     </div>
-</div>
 
 
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="./lib/bootstrap.min.js"></script>
 <script type="text/javascript" src="calculator.js"></script>
 </body>
 </html>
