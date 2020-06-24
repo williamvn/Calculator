@@ -9,10 +9,11 @@ Calculadora estándar con historial, desarrollada con HTML5, JavaScript, CSS y B
 #### Operación Adicional 
 ##### Potencia `Pow`
 
-## Métodos de entrada de datos
-#### Number Keyboard (`1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `0`)
-#### Clear `C` (Limpiar la entrada)
-#### Botón de borrar
+## Métodos de entrada y modificación de datos
+#### Números: Botones HTML + Teclado Físico (`1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `0`)
+#### Clear: `C` (Limpiar la entrada)
+#### Botón HTML de borrar + Botón en teclado físico `Backspace`.
+#### Obtener Resultado: Botón HTML `=` +  Botón en teclado físico `Enter`.
 
 ## Historial
 ###### Mantiene la lista de operaciones realizadas hasta el momento. 
