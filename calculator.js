@@ -81,6 +81,7 @@
         hist.appendChild(li);
         let container = document.getElementById("history-container");
         container.appendChild(hist);
+        historyID = 3;
     };
     
     document.addEventListener('keydown', (e) => {
@@ -228,14 +229,7 @@
                 currentResult = currentNumber
                 break;
         };
-        let li = document.createElement('li');
-        li.setAttribute("class", "list-group-item");
-        li.setAttribute("onclick","Undo(" + currentResult +", "+ historyID +")");
-        li.setAttribute("id", historyID);
-        historyID += 1;
-        li.innerText = (lastOp) != "undefined"? leftOp + " " + cmd + " " + currentNumber + " = " + currentResult: "clear";
-        listHist.appendChild(li);
-        listHist.scrollTop = listHist.scrollHeight;
+        createDOMli(cmd);
        
         lastOp = cmd;
         show(currentResult);
@@ -251,11 +245,29 @@
     function popAt(id){
         console.log(listHist);
         for (let i = listHist.childNodes.length - 1; i >= 0; i--) {
-            console.log(listHist.childNodes[i]);
-            if(i == id){
+            // console.log(listHist.childNodes[i]);
+            if(listHist.childNodes[i].id == id){
                 break;
             }
             listHist.childNodes[i].remove();
         }
     };
+
+    function createDOMli(cmd){
+        let li = document.createElement('li');
+        li.setAttribute("class", "list-group-item over");
+        li.setAttribute("onclick","Undo(" + currentResult +", "+ historyID +")");
+        li.setAttribute("id", historyID);
+        historyID += 1;
+        li.innerText = (lastOp) != "undefined"? leftOp + " " + cmd + " " + currentNumber + " = " + currentResult: "clear";
+
+        
+        let overlay = document.createElement("div");
+        overlay.setAttribute("class", "overlay");
+        overlay.innerHTML = "<div class='text'><i class='fa fa-undo' aria-hidden='true'></i></div>";
+        li.appendChild(overlay);
+        
+        listHist.appendChild(li);
+        listHist.scrollTop = listHist.scrollHeight;
+    }
     //
