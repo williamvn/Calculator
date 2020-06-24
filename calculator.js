@@ -235,6 +235,7 @@
         historyID += 1;
         li.innerText = (lastOp) != "undefined"? leftOp + " " + cmd + " " + currentNumber + " = " + currentResult: "clear";
         listHist.appendChild(li);
+        listHist.scrollTop = listHist.scrollHeight;
        
         lastOp = cmd;
         show(currentResult);
