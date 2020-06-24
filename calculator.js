@@ -159,32 +159,33 @@
         else if(e.key == "Backspace"){
             RemoveNumber();
         }
-
-        code = e.key.charCodeAt(0);
-        if(code >= 48 && code <= 57){
-            AddNumber(e.key);
-        }
-        switch (code) {
-            case 42:
-                Mult();
-                break;
-            case 43:
-                Sum();
-                break;
-            case 45:
-                Substraction();
-                break;
-            case 47:
-                Division();
-                break;
-            case 94:
-                Pow();
-                break;
-            case 46:
-                Dot();
-                break;
-            default:
-                break;
+        else{
+            code = e.key.charCodeAt(0);
+            if(code >= 48 && code <= 57){
+                AddNumber(e.key);
+            }
+            switch (code) {
+                case 42:
+                    Mult();
+                    break;
+                case 43:
+                    Sum();
+                    break;
+                case 45:
+                    Substraction();
+                    break;
+                case 47:
+                    Division();
+                    break;
+                case 94:
+                    Pow();
+                    break;
+                case 46:
+                    Dot();
+                    break;
+                default:
+                    break;
+            }
         }
     });
     //
