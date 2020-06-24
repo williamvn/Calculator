@@ -130,6 +130,7 @@
         show(currentNumber);
         popAt(id);
         historyID = id + 1;
+        clear = true;
     };
     //
 
