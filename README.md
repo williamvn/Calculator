@@ -1,7 +1,8 @@
 # Calculator
 
 Calculadora estándar con historial, desarrollada con HTML5, JavaScript, CSS y Bootstrap.
-
+![alt text](https://github.com/williamvn/calculator/blob/master/img/imagen.jpg?raw=true)
+ 
 ## Operaciones Aritméticas
 ##### Suma `+`   Resta `-`
 ##### Multiplicación `*` División `/`
