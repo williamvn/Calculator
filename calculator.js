@@ -30,6 +30,8 @@
     function RemoveNumber(){
         if(clear){
             document.getElementById("screen").value = 0;
+            currentNumber = 0;
+            currentResult = 0;
         }
         else{
             let stringNumber = document.getElementById('screen').value;
@@ -74,7 +76,7 @@
         hist.setAttribute("id", "history");
         listHist = hist;
         li = document.createElement("li");
-        li.innerText = "History";
+        li.innerHTML = "<h5>History</h5>";
         li.setAttribute("class", "list-group-item active bg-dark list-header");
         hist.appendChild(li);
         let container = document.getElementById("history-container");
@@ -126,7 +128,7 @@
         currentResult = oldResult;
         currentNumber = currentResult;
         show(currentNumber);
-        PopAt(id);
+        popAt(id);
         historyID = id + 1;
     };
     //

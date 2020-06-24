@@ -11,7 +11,7 @@
 
 }
 
-.prefixed-height{
+.prefixed-height ul{
     max-height: 500px;
     overflow-y: auto;
 }
@@ -28,4 +28,11 @@
 .orange{
     background-color: #ff8c00;
     border: none;
-} 
+}
+
+.overlay {
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+    transition: background-color .15s ease-in-out;
+}
