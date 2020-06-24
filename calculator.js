@@ -1,5 +1,6 @@
     //Initialization
     var listHist = document.getElementById("history");
+    var historyID = 3;
     var currentResult = 0;
     var currentNumber = 0;
     var isFractional = false;
@@ -79,6 +80,55 @@
         let container = document.getElementById("history-container");
         container.appendChild(hist);
     };
+    
+    document.addEventListener('keydown', (e) => {
+        // console.log(e.key);
+        if(e.key == "Enter")
+        {
+            Result();
+        }
+        else if(e.key == "Backspace"){
+            RemoveNumber();
+        }
+        else{
+            code = e.key.charCodeAt(0);
+            if(code >= 48 && code <= 57){
+                AddNumber(e.key);
+            }
+            switch (code) {
+                case 42:
+                    Mult();
+                    break;
+                case 43:
+                    Sum();
+                    break;
+                case 45:
+                    Substraction();
+                    break;
+                case 47:
+                    Division();
+                    break;
+                case 94:
+                    Pow();
+                    break;
+                case 46:
+                    Dot();
+                    break;
+                default:
+                    break;
+            }
+        }
+    });
+
+    function Undo(oldResult, id){
+        console.log(oldResult, id);
+        Reset();
+        currentResult = oldResult;
+        currentNumber = currentResult;
+        show(currentNumber);
+        PopAt(id);
+        historyID = id + 1;
+    };
     //
 
     //Operations
@@ -149,45 +199,6 @@
         currentNumber = currentResult;
         clear = true
     };
-
-    document.addEventListener('keydown', (e) => {
-        console.log(e.key);
-        if(e.key == "Enter")
-        {
-            Result();
-        }
-        else if(e.key == "Backspace"){
-            RemoveNumber();
-        }
-        else{
-            code = e.key.charCodeAt(0);
-            if(code >= 48 && code <= 57){
-                AddNumber(e.key);
-            }
-            switch (code) {
-                case 42:
-                    Mult();
-                    break;
-                case 43:
-                    Sum();
-                    break;
-                case 45:
-                    Substraction();
-                    break;
-                case 47:
-                    Division();
-                    break;
-                case 94:
-                    Pow();
-                    break;
-                case 46:
-                    Dot();
-                    break;
-                default:
-                    break;
-            }
-        }
-    });
     //
     
     //Auxiliar Functions
@@ -216,6 +227,9 @@
         };
         let li = document.createElement('li');
         li.setAttribute("class", "list-group-item");
+        li.setAttribute("onclick","Undo(" + currentResult +", "+ historyID +")");
+        li.setAttribute("id", historyID);
+        historyID += 1;
         li.innerText = (lastOp) != "undefined"? leftOp + " " + cmd + " " + currentNumber + " = " + currentResult: "clear";
         listHist.appendChild(li);
        
@@ -228,5 +242,16 @@
     function show(value){
         screen = document.getElementById('screen');
         screen.value = value;
+    };
+
+    function popAt(id){
+        console.log(listHist);
+        for (let i = listHist.childNodes.length - 1; i >= 0; i--) {
+            console.log(listHist.childNodes[i]);
+            if(i == id){
+                break;
+            }
+            listHist.childNodes[i].remove();
+        }
     };
     //
