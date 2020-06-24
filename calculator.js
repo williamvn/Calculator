@@ -254,20 +254,21 @@
     };
 
     function createDOMli(cmd){
-        let li = document.createElement('li');
-        li.setAttribute("class", "list-group-item over");
-        li.setAttribute("onclick","Undo(" + currentResult +", "+ historyID +")");
-        li.setAttribute("id", historyID);
-        historyID += 1;
-        li.innerText = (lastOp) != "undefined"? leftOp + " " + cmd + " " + currentNumber + " = " + currentResult: "clear";
+        if(lastOp != "undefined"){
+            let li = document.createElement('li');
+            li.setAttribute("class", "list-group-item over");
+            li.setAttribute("onclick","Undo(" + currentResult +", "+ historyID +")");
+            li.setAttribute("id", historyID);
+            historyID += 1;
+            li.innerText = leftOp + " " + cmd + " " + currentNumber + " = " + currentResult;
 
-        
-        let overlay = document.createElement("div");
-        overlay.setAttribute("class", "overlay");
-        overlay.innerHTML = "<div class='text'><i class='fa fa-undo' aria-hidden='true'></i></div>";
-        li.appendChild(overlay);
-        
-        listHist.appendChild(li);
-        listHist.scrollTop = listHist.scrollHeight;
+            let overlay = document.createElement("div");
+            overlay.setAttribute("class", "overlay");
+            overlay.innerHTML = "<div class='text'><i class='fa fa-undo' aria-hidden='true'></i></div>";
+            li.appendChild(overlay);
+            
+            listHist.appendChild(li);
+            listHist.scrollTop = listHist.scrollHeight;
+        }
     }
     //
