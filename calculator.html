@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./lib/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <link rel="stylesheet" href="./calculator.css">
@@ -13,26 +13,33 @@
 </head>
 <body class="bg-light" lang="es-es">
     <div class="row">
-        <div class="offset-sm-2 col-sm-8">
+        <div class="offset-lg-2 col-lg-8">
+            <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-dark rounded box-shadow">
+                <div class="lh-100">
+                    <h1 class="mb-0 text-white lh-100"> <i class="fa fa-calculator" aria-hidden="true"></i> Calculator</h1>
+                    <small class="text-white">Standart</small>
+                </div>
+              </div>
+
             <div class="row">
-                <div  id="history-container" class="col-sm-2 my-3">
+                <div  id="history-container" class="col-lg-4 my-3">
                     <ul id="history" class="list-group">
                         <li class="list-group-item active bg-dark list-header">History</li>
                     </ul>
                 </div>
 
-                <div class="col-sm-8">
+                <div class="col-lg-8">
                     <div class="input-group my-4">
                         <input id="screen" type="text" class="form-control bg-white" disabled>
                         <div class="input-group-append">
-                        <button type="button" class="btn btn-primary orange" onclick="RemoveNumber()">Delete</button>
+                        <button type="button" class="btn btn-primary orange" onclick="RemoveNumber()"><i class="fa fa-eraser" aria-hidden="true"></i></button>
                         </button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="body-calculator bg-white p-2">
                             <div class="row">
-                                <div class="col-sm-8" id="keyboard">
+                                <div class="col-lg-8" id="keyboard">
                                     <div class="container">
                                     <button class="btn btn-dark m-1 btn-xl" onclick="AddNumber(1)">1</button>
                                     <button class="btn btn-dark m-1 btn-xl" onclick="AddNumber(2)">2</button>
@@ -48,7 +55,7 @@
                                     <button class="btn btn-dark m-1 btn-xl large orange" onclick="DeleteHistory()"><i class="fa fa-trash"></i>  Delete History</button>
                                 </div>
                                 </div>
-                                <div class="col-sm-4" id="operators">
+                                <div class="col-lg-4" id="operators">
                                     <button class="btn btn-primary orange m-1 btn-xl" onclick="Reset()"><b>C</b></button>
                                     <button class="btn btn-primary orange m-1 btn-xl" onclick="Pow()"><b> Pow </b></button>
                                     <button class="btn btn-primary orange m-1 btn-xl" onclick="Substraction()"><i class="fa fa-minus"></i></button>
@@ -66,7 +73,9 @@
     </div>
 
 
-<script src="./lib/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script type="text/javascript" src="calculator.js"></script>
 </body>
 </html>
